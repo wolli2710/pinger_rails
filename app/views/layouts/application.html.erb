@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>NodeJs</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <%= link_to "Ping Pong", root_path, :class => 'brand' %>
+      <ul class="nav">
+
+      </ul>
+
+      <ul class="nav pull-right">
+        <%- if signed_in? %>
+          Signed in as:
+          <%= link_to username(current_user), user_path(current_user) %>
+          <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'btn' %>
+        <%- else %>
+          <%= link_to "Sign in", new_user_session_path, :class => 'btn' %>
+          <%= link_to "Sign up", new_user_registration_path, :class => 'btn' %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <%-flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :class => "alert alert-#{name}" if msg.is_a?(String) %>
+  <%end%>
+  <%= yield %>
+</div>
+
+</body>
+</html>

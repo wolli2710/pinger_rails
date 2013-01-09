@@ -1,0 +1,12 @@
+<%= form_for @domain, :html => { :class => 'well form-inline' } do |f| %>
+  <fieldset>
+    <legend><%= controller.action_name.capitalize %> Domain</legend>
+
+    <div class="form-actions">
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to 'Cancel', domains_path, :class => 'btn' %>
+    </div>
+  </fieldset>
+<% end %>

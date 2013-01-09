@@ -1,0 +1,7 @@
+<h1>Domain</h1>
+
+<div class="form-actions">
+  <%= link_to 'Back', domains_path, :class => 'btn'  %>
+  <%= link_to 'Edit', edit_domain_path(@domain), :class => 'btn' %>
+  <%= link_to 'Delete', domain_path(@domain), :method => 'delete', :confirm => 'Are you sure?', :class => 'btn btn-danger' %>
+</div>
